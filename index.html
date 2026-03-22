@@ -95,7 +95,9 @@
                     </div>
                     <div class="col-6 d-flex justify-content-center align-items-center">
                         <span class="fs-1">
-                            <i class="fas fa-circle-notch    "></i>
+                            <!-- Iterations -->
+                            <!-- <i class="fas fa-circle-notch    "></i> -->
+                            <canvas id="attendanceChart" width="200" height="200"></canvas>
                         </span>
                     </div>
                 </div>
@@ -176,6 +178,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
+    <!-- Itearation -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -204,6 +208,25 @@ document.addEventListener('DOMContentLoaded', function() {
   calendar.render();
 
 });
+
+    //Iteration
+    let totalLectures = 65;
+    let attended = 60;
+    let absent = totalLectures - attended;
+
+    const data = {
+    labels: ['Present', 'Absent'],
+    datasets: [{
+        data: [attended, absent],
+        backgroundColor: ['#28a745', '#6c757d']
+    }]
+    };
+
+    new Chart(document.getElementById('attendanceChart'), {
+    type: 'pie',
+    data: data
+    });
+
 </script>
 
 </body>
