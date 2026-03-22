@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Medical Science - home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="container-lg welcomeDiv">
+        <div class="row">
+            <h1 class="text-center my-5">Good Morning, Sumon</h1>
+        </div>
+    </section>
+
+    <main>
+        <section class="container-lg classes">
+            <div class="row">
+                <h2>Today's Classes</h2>
+            </div>
+            <div class="row class-cards">
+                <div class="col-6 fw-medium">
+                    Human Anatomy
+                </div>
+                <div class="col-6 text-end">
+                    <span class="fw-medium">
+                        Room No. 23
+                    </span>
+                    <br>
+                    <span>
+                        11:00 - 13:00
+                    </span>
+                </div>
+            </div>
+            <div class="row class-cards">
+                <div class="col-6 fw-medium">
+                    Oral Histology
+                </div>
+                <div class="col-6 text-end">
+                    <span class="fw-medium">
+                        Room No. 11
+                    </span>
+                    <br>
+                    <span>
+                        13:20 - 15:00
+                    </span>
+                </div>
+            </div>
+            <div class="row class-cards">
+                <div class="col-6 fw-medium">
+                    Period-ontology
+                </div>
+                <div class="col-6 text-end">
+                    <span class="fw-medium">
+                        Room No. 06
+                    </span>
+                    <br>
+                    <span>
+                        15:20 - 17:00
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg attendance-section">
+            <div class="attendance-div">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <h2>Attendance</h2>
+                        </div>
+                        <div class="row fw-normal">
+                            <span>
+                                Total Lectures : 65
+                            </span>
+                            <br>
+                            <span>
+                                Total Attended : 60
+                            </span>
+                        </div>
+                        <div class="row my-3">
+                            <span>
+                                <i class="fa fa-circle text-success" aria-hidden="true"></i> Present
+                            </span>
+                            <span>
+                                <i class="fa fa-circle text-secondary" aria-hidden="true"></i> Absent
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center align-items-center">
+                        <span class="fs-1">
+                            <!-- Iterations -->
+                            <!-- <i class="fas fa-circle-notch    "></i> -->
+                            <canvas id="attendanceChart" width="100%" height="100%"></canvas>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg assessment-section">
+            <div class="row">
+                <h2>Assessment</h2>              
+            </div>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div id="calendar">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg items-section">
+            <div class="row px-2">
+                <a href="payment.html" class="col-3 text-center" title="payment">
+                    <div class="items-card w-100">
+                        <i class="fa-solid fa-credit-card fs-1 fw-bold"></i>
+                    </div>
+                <p class="text-center">Payment</p>
+            </a>
+                <a href="#" class="col-3 text-center" title="Exam">
+                    <div class="items-card w-100">
+                        <i class="fa-solid fa-file-circle-check fs-1 fw-bold"></i>
+                    </div>
+                    <p class="text-center">Exam</p>
+                </a>
+                <a href="#" class="col-3 text-center" title="Courses">
+                    <div class="items-card w-100">
+                        <i class="fa-solid fa-bookmark fs-1 fw-bold"></i>
+                    </div>
+                    <p class="text-center">Courses</p>
+                </a>
+                <a href="#" class="col-3 text-center" title="Library">
+                    <div class="items-card w-100">
+                        <i class="fa-solid fa-lines-leaning fs-1 fw-bold"></i>
+                    </div>
+                    <p class="text-center w-auto">Library</p>
+                </a>  
+            </div>
+        </section>
+
+        <section class="container-lg events-section">
+            <div class="container-lg events-div p-3">
+                <div class="row"><h2>Events</h2></div>
+                <div class="row">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg facility-section">
+            <div class="row">
+                <h2>Facilities</h2>
+            </div>
+            <div class="row d-flex flex-column justify-content-center align-items-center">
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
+                    <h6 class="d-inline">Your Mentor</h6> <span>+91 9641XXXXX0</span></a>
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
+                    <h6 class="d-inline">Emergency Contact</h6> <span>+91 9009XXXXX0</span></a>
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
+                    <h6 class="d-inline">Tickit System</h6></a>    
+            </div>
+        </section>
+
+        <section class="container-lg menu-bar">
+            <div class="row">
+                <a href="notification.html" class="col-3" title="notification">
+                    <div class="items-card">
+                       <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div></a> 
+                <a href="profile.html" class="col-3" title="profile">
+                    <div class="items-card">
+                       <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div></a> 
+                <a href="home.html" class="col-3" title="home">
+                    <div class="items-card">
+                       <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div></a>  
+                <a href="#" class="col-3" title="settings">
+                    <div class="items-card">
+                      <i class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div></a> 
+                
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+    <!-- Itearation -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+
+    events: [
+      {
+        title: 'Assignment Submission',
+        start: '2026-04-24'
+      },
+      {
+        title: 'Histology Test',
+        start: '2026-04-26'
+      },
+      {
+        title: 'Periodontology Viva',
+        start: '2026-04-30'
+      }
+    ]
+
+  });
+
+  calendar.render();
+
+});
+
+    //Iteration
+    let totalLectures = 65;
+    let attended = 60;
+    let absent = totalLectures - attended;
+
+    const data = {
+    datasets: [{
+        data: [attended, absent],
+        backgroundColor: ['#28a745', '#6c757d']
+    }]
+    };
+
+    new Chart(document.getElementById('attendanceChart'), {
+    type: 'pie',
+    data: data
+    });
+
+</script>
+
+</body>
+
+</html>

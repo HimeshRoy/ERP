@@ -12,6 +12,7 @@ body{
     top: 0;
     z-index: 1;
     height: 200px;
+    color: #ffffff;
 }
 
 .welcomeDiv h1{
@@ -21,7 +22,7 @@ body{
 main{
     background-color: #C9E3AC;
     width: 100vw;
-    height: 180vh;
+    height: 200vh;
 
     border-radius: 50px 50px 0 0;
 
@@ -29,6 +30,8 @@ main{
     position: relative;
     z-index: 2;
 }
+
+
 
 main .classes {
     position: relative;
@@ -72,6 +75,7 @@ main .attendance-section .attendance-div{
     padding: 0px 50px;
     color: #ffffff;
     font-weight: 500;
+    padding: 8px 0px;
 }
 
 .assessment-card{
@@ -127,6 +131,9 @@ main .items-section .items-card{
 a{
     text-decoration: none;
 }
+a, i:hover{
+    color: rgb(37, 121, 255);
+}
 
 .events-section .events-div{
     width: 100%;
@@ -162,4 +169,25 @@ main .menu-bar .items-card{
     border-radius: 15px;
     width: 100%;
     z-index: 2;
+}
+
+main .items-section p{
+    margin: 0px 5px;
+    color: #265303;
+    font-weight: 500;
+}
+
+main .facility-section{
+    position: relative;
+    top: 150px;
+
+}
+
+main .facility-section .facility-tags{
+    background-color: #EAEFBD;
+    padding: 10px;
+    width: 90%;
+    margin: 5px 0px;
+    border-radius: 15px;
+    
 }

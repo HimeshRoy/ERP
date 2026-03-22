@@ -1,0 +1,71 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #90BE6D;
+}
+
+.welcomeDiv{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 200px;
+  color: #ffffff;
+}
+
+.welcomeDiv h1{
+  font-weight: bolder;
+
+}
+
+main{
+  background-color: #C9E3AC;
+  width: 100vw;
+  height: 180vh;
+  border-radius: 50px 50px 0 0;
+  margin-top: -80px; 
+  position: relative;
+  z-index: 2;
+}
+
+main .due-section {
+  position: relative;
+  top: 60px;
+}
+
+main .fee-breakdown{
+  position: relative;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+main .payment-section{
+  position: relative;
+  top: 70px;
+}
+
+main .fee-breakdown .fee-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .fee-breakdown .row{
+  background-color: #EAEFBD;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+main .payment-methods{
+  position: relative;
+  top: 150px;
+  display: flex;
+
+}

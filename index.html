@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School of Medical Science - home</title>
+    <title>School of Medical Science</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
     <link rel="shortcut icon" href="fav.png" type="image/x-icon">
@@ -15,218 +16,45 @@
 <body>
     <section class="container-lg welcomeDiv">
         <div class="row">
-            <h1 class="text-center my-5">Good Morning, Sumon</h1>
+            <h1 class="text-center my-5">Login</h1>
         </div>
     </section>
 
     <main>
-        <section class="container-lg classes">
+        <section class=" container-lg login-form">
             <div class="row">
-                <h2>Today's Classes</h2>
+                <div class="mb-3">
+                    <label for="userid" class="form-label"><h5>User ID</h5></label>
+                    <input type="text" class="form-control" id="userid"
+                        placeholder="Enter your user ID">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label"><h5>Password</h5></label>
+                    <input type="password" class="form-control" id="password"
+                        placeholder="Enter your password">
+                </div>
             </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Human Anatomy
+            <div class="row">
+                <div class="col-6 text-start">
+                    <label for="rememberMe">
+                <input type="checkbox" id="rememberMe" title="remember me"> Remember Me</label>
                 </div>
                 <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 23
-                    </span>
-                    <br>
-                    <span>
-                        11:00 - 13:00
-                    </span>
+                    <a href="#">forgot password?</a>
                 </div>
             </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Oral Histology
-                </div>
-                <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 11
-                    </span>
-                    <br>
-                    <span>
-                        13:20 - 15:00
-                    </span>
-                </div>
+            <div class="row d-flex justify-content-center align-items-center my-4">
+                <a href="home.html"class="btn login w-75" id="login" onclick="">Login</a>
             </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Period-ontology
-                </div>
-                <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 06
-                    </span>
-                    <br>
-                    <span>
-                        15:20 - 17:00
-                    </span>
-                </div>
+            <div class="row d-flex flex-column justify-content-center align-items-center my-3">
+                <p class="text-secondary text-center mt-4">SUPPORT ACCESS</p>
+                <a href="#" class=" text-decoration-none text-dark help-btn w-auto p-2"><i class="fa-regular fa-circle-question text-success"></i> CONTACT IT HELPDESK</a>
             </div>
+
         </section>
-
-        <section class="container-lg attendance-section">
-            <div class="attendance-div">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="row">
-                            <h2>Attendance</h2>
-                        </div>
-                        <div class="row fw-normal">
-                            <span>
-                                Total Lectures : 65
-                            </span>
-                            <br>
-                            <span>
-                                Total Attended : 60
-                            </span>
-                        </div>
-                        <div class="row my-3">
-                            <span>
-                                <i class="fa fa-circle text-success" aria-hidden="true"></i> Present
-                            </span>
-                            <span>
-                                <i class="fa fa-circle text-secondary" aria-hidden="true"></i> Absent
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-6 d-flex justify-content-center align-items-center">
-                        <span class="fs-1">
-                            <!-- Iterations -->
-                            <!-- <i class="fas fa-circle-notch    "></i> -->
-                            <canvas id="attendanceChart" width="200" height="200"></canvas>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container-lg assessment-section">
-            <div class="row">
-                <h2>Assessment</h2>              
-            </div>
-            <div class="row d-flex justify-content-center align-items-center">
-                <div id="calendar">
-
-                </div>
-            </div>
-        </section>
-
-        <section class="container-lg items-section">
-            <div class="row px-2">
-                <a href="#" class="col-2" title="payment">
-                    <div class="items-card w-100">
-                        <i class="fa-brands fa-amazon-pay fs-1 fw-bold"></i>
-                    </div></a>
-                <a href="#" class="col-2" title="Result">
-                    <div class="items-card w-100">
-                        <i class="fa-solid fa-square-poll-vertical fs-1 fw-bold"></i>
-                    </div></a>
-                <a href="#" class="col-2" title="Exam">
-                    <div class="items-card w-100">
-                        <i class="fa-solid fa-file-circle-check fs-1 fw-bold"></i>
-                    </div></a>
-                <a href="#" class="col-2" title="Courses">
-                    <div class="items-card w-100">
-                        <i class="fa-solid fa-bookmark fs-1 fw-bold"></i>
-                    </div></a>
-                <a href="#" class="col-2" title="facility">
-                    <div class="items-card w-100">
-                        <i class="fa-solid fa-person-circle-question fs-1 fw-bold"></i>
-                    </div></a>
-                <a href="#" class="col-2" title="Library">
-                    <div class="items-card w-100">
-                        <i class="fa-solid fa-book-bookmark fs-1 fw-bold"></i>
-                    </div></a>   
-            </div>
-        </section>
-
-        <section class="container-lg events-section">
-            <div class="events-div">
-
-            </div>
-        </section>
-
-        <section class="container-lg menu-bar">
-            <div class="row">
-                <a href="notification.html" class="col-3" title="notification">
-                    <div class="items-card">
-                       <i class="fa-solid fa-bell fs-5 fw-bold"></i>
-                    </div></a> 
-                <a href="#" class="col-3" title="profile">
-                    <div class="items-card">
-                       <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
-                    </div></a> 
-                <a href="index.html" class="col-3" title="home">
-                    <div class="items-card">
-                       <i class="fa-solid fa-house fs-5 fw-bold"></i>
-                    </div></a>  
-                <a href="#" class="col-3" title="settings">
-                    <div class="items-card">
-                      <i class="fa-solid fa-gear fs-5 fw-bold"></i>
-                    </div></a> 
-                
-            </div>
-        </section>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-
-    <!-- Itearation -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-  var calendarEl = document.getElementById('calendar');
-
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-
-    events: [
-      {
-        title: 'Assignment Submission',
-        start: '2026-04-24'
-      },
-      {
-        title: 'Histology Test',
-        start: '2026-04-26'
-      },
-      {
-        title: 'Periodontology Viva',
-        start: '2026-04-30'
-      }
-    ]
-
-  });
-
-  calendar.render();
-
-});
-
-    //Iteration
-    let totalLectures = 65;
-    let attended = 60;
-    let absent = totalLectures - attended;
-
-    const data = {
-    datasets: [{
-        data: [attended, absent],
-        backgroundColor: ['#28a745', '#6c757d']
-    }]
-    };
-
-    new Chart(document.getElementById('attendanceChart'), {
-    type: 'pie',
-    data: data
-    });
-
-</script>
 
 </body>
 
