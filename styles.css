@@ -21,7 +21,7 @@ body{
 main{
     background-color: #C9E3AC;
     width: 100vw;
-    height: 120vh;
+    height: 180vh;
 
     border-radius: 50px 50px 0 0;
 
@@ -87,6 +87,18 @@ main .attendance-section .attendance-div{
     border-radius: 10px;
 }
 
+#calendar{
+  background:white;
+  border-radius:20px;
+  padding:10px;
+  width: 90%;
+  font-size:12px;
+}
+
+.fc-toolbar-title{
+    font-size:16px !important;
+}
+
 main .items-section{
     position: relative;
     top: 100px;
@@ -98,11 +110,18 @@ main .items-section .items-card{
     justify-content: center;
     align-items: center;
     background-color: #90BE6D;
-    padding: 10px;
+    padding: 10px 25px;
     margin: 0px 5px;
     border-radius: 15px;
     color: #F7F7F7;
 }
+.items-section .row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
 
 a{
     text-decoration: none;
@@ -134,10 +153,10 @@ main .menu-bar .items-card{
     padding: 10px;
     margin: 0px 5px;
     border-radius: 15px;
-    color: #90BE6D;
+    color: #173500;
 }
 .menu-bar .row{
-    background-color: #90BE6D;
+    background-color: #173500;
     padding: 10px;
     border-radius: 15px;
     width: 100%;
