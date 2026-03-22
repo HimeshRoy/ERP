@@ -12,6 +12,7 @@ body{
     top: 0;
     z-index: 1;
     height: 200px;
+    color: #ffffff;
 }
 
 .welcomeDiv h1{
