@@ -1,159 +1,146 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Fee Payment App</title>
-    <link rel="stylesheet" href="payment.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/font/lucide.min.css" />
-   <script src="https://cdn.tailwindcss.com"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Fee Payment App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="payment.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
+  <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/font/lucide.min.css" />
 </head>
-  <body class="bg-[#C1E1C1] font-sans text-[#1A3C1A] pb-24">
-    <div id="app">
-      <!-- Header -->
-      <header class="flex items-center justify-between px-4 py-6">
-        <button class="p-2 hover:bg-black/5 rounded-full transition-colors" id="back-button">
-          <i class="lucide-chevron-left w-6 h-6"></i>
-        </button>
-        <h1 class="text-2xl font-bold" id="page-title">Payment</h1>
-        <div class="w-10"></div>
-      </header>
 
-      <main class="px-4 space-y-4">
-        <!-- Student Info Card -->
-        <div class="bg-[#F5F9F5] rounded-2xl p-5 shadow-sm border border-white/20 animate-in fade-in slide-in-from-bottom-2 duration-500" id="student-info-card">
-          <div class="space-y-1">
-            <p class="text-lg font-medium">Name: <span class="font-normal">Sumon</span></p>
-            <p class="text-lg font-medium">ID: <span class="font-normal">2021-CSE-045</span></p>
-            <p class="text-lg font-medium">Semester: <span class="font-normal">6th</span></p>
-          </div>
-        </div>
-
-        <!-- Total Due Card -->
-        <div class="bg-[#F5F9F5] rounded-2xl p-5 shadow-sm border border-white/20 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100" id="total-due-card">
-          <div class="flex items-baseline gap-2">
-            <h2 class="text-3xl font-bold text-[#2D5A27]">Total Due: ₹11,000</h2>
-          </div>
-          <div class="flex items-center gap-2 mt-1">
-            <p class="text-gray-600">Due date: 30 April 2026</p>
-            <span class="bg-[#E55B5B] text-white text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider">
-              Pending
-            </span>
-          </div>
-        </div>
-
-        <!-- Fee Breakdown -->
-        <section class="space-y-3" id="fee-breakdown-section">
-          <h3 class="text-xl font-bold px-1">Fee Breakdown</h3>
-          <div class="space-y-2">
-            <div class="bg-[#F5F9F5] rounded-xl p-4 flex items-center justify-between shadow-sm animate-in fade-in slide-in-from-left-2 duration-500 delay-200">
-              <span class="text-lg font-medium">Tuition Fee</span>
-              <div class="flex items-center gap-4">
-                <span class="text-lg font-bold">₹10,000</span>
-                <div class="w-16 flex justify-end">
-                  <span class="text-[#E55B5B] font-medium">Due</span>
-                </div>
-              </div>
-            </div>
-            <div class="bg-[#F5F9F5] rounded-xl p-4 flex items-center justify-between shadow-sm animate-in fade-in slide-in-from-left-2 duration-500 delay-300">
-              <span class="text-lg font-medium">Exam Fee</span>
-              <div class="flex items-center gap-4">
-                <span class="text-lg font-bold">₹500</span>
-                <div class="w-16 flex justify-end">
-                  <div class="flex items-center gap-1 text-[#4A8C4A]">
-                    <span class="font-medium">Paid</span>
-                    <i class="lucide-check-circle-2 w-4 h-4"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-[#F5F9F5] rounded-xl p-4 flex items-center justify-between shadow-sm animate-in fade-in slide-in-from-left-2 duration-500 delay-400">
-              <span class="text-lg font-medium">Library Fee</span>
-              <div class="flex items-center gap-4">
-                <span class="text-lg font-bold">₹500</span>
-                <div class="w-16 flex justify-end">
-                  <span class="text-[#E55B5B] font-medium">Due</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Payment Methods -->
-        <div class="flex gap-2 py-2 overflow-x-auto no-scrollbar" id="payment-methods">
-          <button class="method-btn px-6 py-2 rounded-full font-medium transition-all whitespace-nowrap border bg-[#4A8C4A] text-white border-[#4A8C4A]" data-method="UPI">UPI</button>
-          <button class="method-btn px-6 py-2 rounded-full font-medium transition-all whitespace-nowrap border bg-[#F5F9F5] text-[#1A3C1A] border-transparent" data-method="Debit Card">Debit Card</button>
-          <button class="method-btn px-6 py-2 rounded-full font-medium transition-all whitespace-nowrap border bg-[#F5F9F5] text-[#1A3C1A] border-transparent" data-method="Net Banking">Net Banking</button>
-        </div>
-
-        <!-- Pay Now Button -->
-        <button class="w-full bg-[#4A8C4A] text-white py-4 rounded-full text-xl font-bold shadow-lg active:scale-95 transition-transform" id="pay-now-button">
-          Pay Now ₹11,000
-        </button>
-
-        <!-- Payment History -->
-        <section class="space-y-3 pt-4" id="payment-history-section">
-          <h3 class="text-xl font-bold px-1">Payment History</h3>
-          <div class="bg-[#F5F9F5] rounded-2xl overflow-hidden shadow-sm">
-            <div class="p-4 flex items-center justify-between border-b border-gray-200">
-              <div class="space-y-1">
-                <span class="text-lg font-medium block">Semester 5 Fee</span>
-                <span class="text-xl font-bold block">₹11,000</span>
-              </div>
-              <div class="text-right">
-                <span class="text-[#4A8C4A] font-bold block">Paid</span>
-                <span class="text-sm text-gray-500 block">15 Jan 2026</span>
-              </div>
-            </div>
-            <div class="p-4 flex items-center justify-between">
-              <div class="space-y-1">
-                <span class="text-lg font-medium block">Semester 4 Fee</span>
-                <span class="text-xl font-bold block">₹11,000</span>
-              </div>
-              <div class="text-right">
-                <span class="text-[#4A8C4A] font-bold block">Paid</span>
-                <span class="text-sm text-gray-500 block">20 Jul 2025</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Bottom Navigation -->
-      <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 flex justify-between items-center z-50">
-        <button class="nav-item flex flex-col items-center gap-1 text-gray-400">
-          <i class="lucide-bell w-6 h-6"></i>
-          <span class="text-[10px] font-medium uppercase tracking-tighter">Notifications</span>
-        </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-gray-400">
-          <i class="lucide-user w-6 h-6"></i>
-          <span class="text-[10px] font-medium uppercase tracking-tighter">Profile</span>
-        </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-[#4A8C4A]">
-          <i class="lucide-home w-6 h-6"></i>
-          <span class="text-[10px] font-medium uppercase tracking-tighter">Home</span>
-        </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-gray-400">
-          <i class="lucide-settings w-6 h-6"></i>
-          <span class="text-[10px] font-medium uppercase tracking-tighter">Settings</span>
-        </button>
-      </nav>
+<body>
+  <section class="container-lg welcomeDiv">
+    <div class="row">
+      <h1 class="text-center my-5">Good Morning, Sumon</h1>
     </div>
+  </section>
 
-    <script>
-      // Simple interaction for payment method selection
-      const methodButtons = document.querySelectorAll('.method-btn');
-      methodButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          methodButtons.forEach(b => {
-            b.classList.remove('bg-[#4A8C4A]', 'text-white', 'border-[#4A8C4A]');
-            b.classList.add('bg-[#F5F9F5]', 'text-[#1A3C1A]', 'border-transparent');
-          });
-          btn.classList.add('bg-[#4A8C4A]', 'text-white', 'border-[#4A8C4A]');
-          btn.classList.remove('bg-[#F5F9F5]', 'text-[#1A3C1A]', 'border-transparent');
-        });
-      });
-    </script>
-  </body>
+  <main>
+    <!-- Total Due Card -->
+    <section class="due-section container-lg">
+      <div class="">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="">Total Due: ₹11,000</h2>
+        </div>
+        <div class="d-flex align-items-center justify-content-between gap-2 mt-1">
+          <p class="d-flex align-items-center jusfiy-content-center">Due date: 30 April 2026</p>
+          <p
+            class=" text-uppercase bg-danger p-1 px-2 rounded-5 text-center fst-normal text-white font-medium d-inline-block">
+            Pending
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Fee Breakdown -->
+    <section class="fee-breakdown container-lg">
+      <h3 class="py-2">Fee Breakdown</h3>
+      <div class="fee-div">
+        <div class="row my-2">
+          <div class="col-4 text-start">
+            <span class="text-lg font-medium">Tuition Fee</span>
+          </div>
+          <div class="col-4 text-center">
+            <span class="text-lg fw-bold">₹10,000</span>
+          </div>
+          <div class="col-4 text-end">
+            <span class="text-danger text-end">Due</span>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-4 text-start">
+            <span class="text-lg font-medium">Exam Fee</span>
+          </div>
+          <div class="col-4 text-center">
+            <span class="text-lg fw-bold">₹500</span>
+          </div>
+          <div class="col-4 text-end">
+            <span class="text-success text-end">Paid</span>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-4 text-start">
+            <span class="text-lg font-medium">Library Fee</span>
+          </div>
+          <div class="col-4 text-center">
+            <span class="text-lg fw-bold">₹500</span>
+          </div>
+          <div class="col-4 text-end">
+            <span class="text-danger text-end">Due</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="payment-section container-lg">
+      <div class="row d-flex justify-content-center align-items-center my-3">
+      <button
+        class=" w-auto btn"
+        id="pay-now-button">
+        Pay Now ₹11,000
+      </button>
+      </div>
+
+      <!-- Payment History -->
+      <section class="payment-history-section container-lg pt-4" id="payment-history-section">
+        <h3>Payment History</h3>
+          <div class="row p-3 d-flex">
+            <div>
+              <span class="text-lg fw-medium ">Semester 5 Fee</span>
+              <span class="text-xl fw-medium">₹11,000</span>
+            </div>
+            <div class="text-right">
+              <span class="text-success font-medium">Paid</span>
+              <span class="text-secondary font-normal">15 Jan 2026</span>
+            </div>
+          </div>
+          <div class="row p-3 d-flex">
+            <div>
+              <span class="text-lg fw-medium">Semester 4 Fee</span>
+              <span class="text-xl fw-medium">₹11,000</span>
+            </div>
+            <div class="text-right">
+              <span class="text-success font-medium">Paid</span>
+              <span class="text-secondary font-normal">20 Jul 2025</span>
+            </div>
+          </div>
+      </section>
+    </section>
+
+    <section class="container-lg menu-bar">
+            <div class="row">
+                <a href="notification.html" class="col-3" title="notification">
+                    <div class="items-card">
+                       <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div></a> 
+                <a href="profile.html" class="col-3" title="profile">
+                    <div class="items-card">
+                       <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div></a> 
+                <a href="index.html" class="col-3" title="home">
+                    <div class="items-card">
+                       <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div></a>  
+                <a href="#" class="col-3" title="settings">
+                    <div class="items-card">
+                      <i class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div></a> 
+                
+            </div>
+        </section>
+
+        
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
 </html>
-

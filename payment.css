@@ -1,48 +1,71 @@
-@import "tailwindcss";
-
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+*{
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+body{
+  background-color: #90BE6D;
 }
 
-@keyframes slide-in-from-bottom {
-  from { transform: translateY(0.5rem); }
-  to { transform: translateY(0); }
+.welcomeDiv{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 200px;
+  color: #ffffff;
 }
 
-@keyframes slide-in-from-left {
-  from { transform: translateX(-0.5rem); }
-  to { transform: translateX(0); }
+.welcomeDiv h1{
+  font-weight: bolder;
+
 }
 
-.animate-in {
-  animation-duration: 500ms;
-  animation-fill-mode: both;
+main{
+  background-color: #C9E3AC;
+  width: 100vw;
+  height: 180vh;
+  border-radius: 50px 50px 0 0;
+  margin-top: -80px; 
+  position: relative;
+  z-index: 2;
 }
 
-.fade-in {
-  animation-name: fade-in;
+main .due-section {
+  position: relative;
+  top: 60px;
 }
 
-.slide-in-from-bottom-2 {
-  animation-name: slide-in-from-bottom;
+main .fee-breakdown{
+  position: relative;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+
+
 }
 
-.slide-in-from-left-2 {
-  animation-name: slide-in-from-left;
+main .payment-section{
+  position: relative;
+  top: 70px;
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
+main .fee-breakdown .fee-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .fee-breakdown .row{
+  background-color: #EAEFBD;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+main .payment-methods{
+  position: relative;
+  top: 150px;
+  display: flex;
+
+}
