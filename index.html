@@ -95,6 +95,7 @@
                 console.log("Data:", data)
 
                 if (data.success) {
+                    localStorage.setItem('user', JSON.stringify(data)) 
                     window.location.href = "home.html"
                 } else {
                     console.log('Login failed:', data.message)

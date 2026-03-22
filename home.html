@@ -15,7 +15,7 @@
 <body>
     <section class="container-lg welcomeDiv">
         <div class="row">
-            <h1 class="text-center my-5">Good Morning, Sumon</h1>
+            <h1 class="text-center my-5">Good Morning, <span id="student-name"></span></h1>
         </div>
     </section>
 
@@ -193,7 +193,7 @@
                     <div class="d-flex flex-column justify-content-center align-items-end">
                         <a href="#" class="setting-item" title="Help & Support">
                     <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
-                    <a href="index.html" class="setting-item" title="Logout">             
+                    <a href="index.html" class="setting-item" title="Logout" onclick="localStorage.clear()">             
                     <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
                     </a> 
                     <a href="#" class="setting-item" title="about">
@@ -219,6 +219,16 @@
     <!-- Itearation -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Iteration
+        const user = JSON.parse(localStorage.getItem('user'))
+
+        if (!user) {
+            window.location.href = "index.html"
+        }
+
+        document.getElementById('student-name').innerText = user.profile.name  
+        //Iteration ends
+
         document.addEventListener('DOMContentLoaded', function () {
 
             var calendarEl = document.getElementById('calendar');
