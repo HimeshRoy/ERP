@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
+CORS(app, resources={r"/login": {"origins": "http://127.0.0.1:5500"}})
 
 def login(username, password):
     connection = sqlite3.connect('erp.db')
