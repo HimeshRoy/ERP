@@ -106,7 +106,7 @@
 
         <section class="container-lg assessment-section">
             <div class="row">
-                <h2>Assessment</h2>              
+                <h2>Assessment</h2>
             </div>
             <div class="row d-flex justify-content-center align-items-center">
                 <div id="calendar">
@@ -121,8 +121,8 @@
                     <div class="items-card w-100">
                         <i class="fa-solid fa-credit-card fs-1 fw-bold"></i>
                     </div>
-                <p class="text-center">Payment</p>
-            </a>
+                    <p class="text-center">Payment</p>
+                </a>
                 <a href="#" class="col-3 text-center" title="Exam">
                     <div class="items-card w-100">
                         <i class="fa-solid fa-file-circle-check fs-1 fw-bold"></i>
@@ -140,13 +140,15 @@
                         <i class="fa-solid fa-lines-leaning fs-1 fw-bold"></i>
                     </div>
                     <p class="text-center w-auto">Library</p>
-                </a>  
+                </a>
             </div>
         </section>
 
         <section class="container-lg events-section">
             <div class="container-lg events-div p-3">
-                <div class="row"><h2>Events</h2></div>
+                <div class="row">
+                    <h2>Events</h2>
+                </div>
                 <div class="row">
 
                 </div>
@@ -159,11 +161,14 @@
             </div>
             <div class="row d-flex flex-column justify-content-center align-items-center">
                 <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
-                    <h6 class="d-inline">Your Mentor</h6> <span>+91 9641XXXXX0</span></a>
+                    <h6 class="d-inline">Your Mentor</h6> <span>+91 9641XXXXX0</span>
+                </a>
                 <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
-                    <h6 class="d-inline">Emergency Contact</h6> <span>+91 9009XXXXX0</span></a>
+                    <h6 class="d-inline">Emergency Contact</h6> <span>+91 9009XXXXX0</span>
+                </a>
                 <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between">
-                    <h6 class="d-inline">Tickit System</h6></a>    
+                    <h6 class="d-inline">Tickit System</h6>
+                </a>
             </div>
         </section>
 
@@ -171,21 +176,37 @@
             <div class="row">
                 <a href="notification.html" class="col-3" title="notification">
                     <div class="items-card">
-                       <i class="fa-solid fa-bell fs-5 fw-bold"></i>
-                    </div></a> 
+                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div>
+                </a>
                 <a href="profile.html" class="col-3" title="profile">
                     <div class="items-card">
-                       <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
-                    </div></a> 
+                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div>
+                </a>
                 <a href="home.html" class="col-3" title="home">
                     <div class="items-card">
-                       <i class="fa-solid fa-house fs-5 fw-bold"></i>
-                    </div></a>  
-                <a href="#" class="col-3" title="settings">
+                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <div id="settingsOverlay" class="settings-overlay">
+                    <div class="d-flex flex-column justify-content-center align-items-end">
+                        <a href="#" class="setting-item" title="Help & Support">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
+                    <a href="index.html" class="setting-item" title="Logout">             
+                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
+                    </a> 
+                    <a href="#" class="setting-item" title="about">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                    </a>
+                    </div>
+                </div>
+                <a class="col-3" title="settings">
                     <div class="items-card">
-                      <i class="fa-solid fa-gear fs-5 fw-bold"></i>
-                    </div></a> 
-                
+                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div>
+                </a>
+
             </div>
         </section>
 
@@ -197,53 +218,69 @@
 
     <!-- Itearation -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-  var calendarEl = document.getElementById('calendar');
+            var calendarEl = document.getElementById('calendar');
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
 
-    events: [
-      {
-        title: 'Assignment Submission',
-        start: '2026-04-24'
-      },
-      {
-        title: 'Histology Test',
-        start: '2026-04-26'
-      },
-      {
-        title: 'Periodontology Viva',
-        start: '2026-04-30'
-      }
-    ]
+                events: [
+                    {
+                        title: 'Assignment Submission',
+                        start: '2026-04-24'
+                    },
+                    {
+                        title: 'Histology Test',
+                        start: '2026-04-26'
+                    },
+                    {
+                        title: 'Periodontology Viva',
+                        start: '2026-04-30'
+                    }
+                ]
 
-  });
+            });
 
-  calendar.render();
+            calendar.render();
 
-});
+        });
 
-    //Iteration
-    let totalLectures = 65;
-    let attended = 60;
-    let absent = totalLectures - attended;
+        //Iteration
+        let totalLectures = 65;
+        let attended = 60;
+        let absent = totalLectures - attended;
 
-    const data = {
-    datasets: [{
-        data: [attended, absent],
-        backgroundColor: ['#28a745', '#6c757d']
-    }]
-    };
+        const data = {
+            datasets: [{
+                data: [attended, absent],
+                backgroundColor: ['#28a745', '#6c757d']
+            }]
+        };
 
-    new Chart(document.getElementById('attendanceChart'), {
-    type: 'pie',
-    data: data
-    });
+        new Chart(document.getElementById('attendanceChart'), {
+            type: 'pie',
+            data: data
+        });
 
-</script>
+        /* js for settings function*/
+
+        const settingsBtn = document.getElementById("settingsBtn");
+        const overlay = document.getElementById("settingsOverlay");
+
+        settingsBtn.addEventListener("click", function () {
+
+            if (overlay.style.display === "block") {
+                overlay.style.display = "none";
+            }
+            else {
+                overlay.style.display = "block";
+            }
+
+        });
+
+    </script>
 
 </body>
 

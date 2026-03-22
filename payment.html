@@ -112,25 +112,41 @@
       </section>
     </section>
 
-    <section class="container-lg menu-bar">
+   <section class="container-lg menu-bar">
             <div class="row">
                 <a href="notification.html" class="col-3" title="notification">
                     <div class="items-card">
-                       <i class="fa-solid fa-bell fs-5 fw-bold"></i>
-                    </div></a> 
+                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div>
+                </a>
                 <a href="profile.html" class="col-3" title="profile">
                     <div class="items-card">
-                       <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
-                    </div></a> 
+                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div>
+                </a>
                 <a href="home.html" class="col-3" title="home">
                     <div class="items-card">
-                       <i class="fa-solid fa-house fs-5 fw-bold"></i>
-                    </div></a>  
-                <a href="#" class="col-3" title="settings">
+                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <div id="settingsOverlay" class="settings-overlay">
+                    <div class="d-flex flex-column justify-content-center align-items-end">
+                        <a href="#" class="setting-item" title="Help & Support">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
+                    <a href="index.html" class="setting-item" title="Logout">             
+                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
+                    </a> 
+                    <a href="#" class="setting-item" title="about">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                    </a>
+                    </div>
+                </div>
+                <a class="col-3" title="settings">
                     <div class="items-card">
-                      <i class="fa-solid fa-gear fs-5 fw-bold"></i>
-                    </div></a> 
-                
+                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div>
+                </a>
+
             </div>
         </section>
 
@@ -139,6 +155,24 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+        
+        /* js for settings function*/
+        const settingsBtn = document.getElementById("settingsBtn");
+        const overlay = document.getElementById("settingsOverlay");
+
+        settingsBtn.addEventListener("click", function () {
+
+            if (overlay.style.display === "block") {
+                overlay.style.display = "none";
+            }
+            else {
+                overlay.style.display = "block";
+            }
+
+        });
+    </script>
 
 
 </body>
