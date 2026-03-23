@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Medical Science - home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="studentManagement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="container-lg welcomeDiv">
+        <div class="row">
+            <h1 class="text-center my-5">Faculty Management</h1>
+        </div>
+    </section>
+
+    <main>
+        <section class="container-lg management-section d-flex flex-column justify-content-center align-items-center">
+            <div class="container mt-4">
+
+                <form id="addStudentForm" class="mb-4">
+
+                    <input type="text" id="fecultyName" placeholder="Faculty Name" class="form-control mb-2" required>
+
+                    <input type="text" id="facultyID" placeholder="Faculty ID" class="form-control mb-2" required>
+
+                    <input type="email" id="facultyEmail" placeholder="Email" class="form-control mb-2" required>
+
+                    <input type="text" id="mobile" placeholder="Mobile Number" class="form-control mb-2" required>
+
+                    <input type="date" id="dob" class="form-control mb-2" required title="date-of-birth">
+
+                    <input type="number" id="admissionYear" placeholder="Admission Year" class="form-control mb-2"
+                        required>
+
+                    <textarea id="address" placeholder="Address" class="form-control mb-2" required></textarea>
+
+                    <button class="btn btn-success w-100" type="submit">
+                        Add Member
+                    </button> 
+
+                </form>
+
+                <hr>
+
+                <h3>All Members</h3>
+
+                <table class="table table-bordered">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Faculty ID</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="facultyTable"></tbody>
+
+                </table>
+
+            </div>
+        </section>
+
+
+        <section class="container-lg menu-bar">
+            <div class="row">
+                <a href="AdminNotif.html" class="col-3" title="notification">
+                    <div class="items-card">
+                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="facultyProfile.html" class="col-3" title="profile">
+                    <div class="items-card">
+                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="admin.html" class="col-3" title="home">
+                    <div class="items-card">
+                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <div id="settingsOverlay" class="settings-overlay">
+                    <div class="d-flex flex-column justify-content-center align-items-end">
+                        <a href="#" class="setting-item" title="Help & Support">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support
+                            </div>
+                        </a>
+                        <a href="index.html" class="setting-item" title="Logout">
+                            <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout
+                            </div>
+                        </a>
+                        <a href="#" class="setting-item" title="about">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="col-3" title="settings">
+                    <div class="items-card">
+                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+    <!-- Itearation -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        // redirect to login if not logged in
+        // protect page
+
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
+
+        // load students from api
+
+        async function loadFaculty() {
+
+            const response = await fetch(
+                "https://erp-y6ur.onrender.com/admin/faculty"
+            )
+
+            const data = await response.json()
+
+            const table = document.getElementById("facultyTable")
+
+            table.innerHTML = ""
+
+            data.faculty.forEach(f => {
+
+                const row = document.createElement("tr")
+
+                row.innerHTML = `
+<td>${f.id}</td>
+<td>${f.name}</td>
+<td>${f.faculty_id}</td>
+<td>${f.email}</td>
+
+<td>
+<button onclick="deleteFaculty(${f.id})"
+class="btn btn-danger btn-sm">
+Delete
+</button>
+</td>
+`
+
+                table.appendChild(row)
+
+            })
+
+        }
+
+        loadFaculty()
+
+
+
+        document.getElementById("addStudentForm")
+            .addEventListener("submit", async function (e) {
+
+                e.preventDefault()
+
+                const name = document.getElementById("fecultyName").value
+                const facultyID = document.getElementById("facultyID").value
+                const email = document.getElementById("facultyEmail").value
+                const mobile = document.getElementById("mobile").value
+                const dob = document.getElementById("dob").value
+                const admissionYear = document.getElementById("admissionYear").value
+                const address = document.getElementById("address").value
+
+                await fetch(
+                    "https://erp-y6ur.onrender.com/admin/faculty",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name,
+                            faculty_id: facultyID,
+                            email,
+                            mobile,
+                            dob,
+                            joining_year: admissionYear,
+                            address
+                        })
+                    })
+
+                loadFaculty()
+
+            })
+
+
+
+        async function deleteFaculty(id) {
+
+            await fetch(
+                `https://erp-y6ur.onrender.com/admin/faculty/${id}`,
+                {
+                    method: "DELETE"
+                })
+
+            loadFaculty()
+
+        }
+
+
+
+        /* js for settings function*/
+
+        const settingsBtn = document.getElementById("settingsBtn");
+        const overlay = document.getElementById("settingsOverlay");
+
+        settingsBtn.addEventListener("click", function () {
+
+            if (overlay.style.display === "block") {
+                overlay.style.display = "none";
+            }
+            else {
+                overlay.style.display = "block";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

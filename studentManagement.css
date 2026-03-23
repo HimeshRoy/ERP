@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.management-section{
+    position: relative;
+    top: 50px;
+}
