@@ -25,6 +25,22 @@ for username, password, name, roll_no, email,father_name, mother_name, dob, mobi
         (user_id, name, roll_no, email,father_name, mother_name, dob, mobile_no, admission_year, address)
     )
 
+staff_data = [
+    ('admin123', 'admin123', 'admin', 'Admin User', 'ADM001', 'Administration', 'admin@soms.edu.in', '01-01-1985', 9000000001, '2010-11', 'Kolkata, West Bengal'),
+    ('faculty123', 'faculty123', 'teacher', 'Dr. Ramesh Kumar', 'FAC001', 'Oral Biology', 'ramesh@soms.edu.in', '15-06-1980', 9000000002, '2015-16', 'Mumbai, Maharashtra'),
+]
+
+for username, password, role, name, faculty_id, department, email, dob, mobile_no, joining_year, address in staff_data:
+    cur.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+                (username, password, role))
+    
+    user_id = cur.lastrowid
+    
+    cur.execute(
+        "INSERT INTO staff (user_id, name, faculty_id, department, email, dob, mobile_no, joining_year, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (user_id, name, faculty_id, department, email, dob, mobile_no, joining_year, address)
+    )
+
 connection.commit()
 connection.close()
 print("Database initialized and 'erp.db' created!")
