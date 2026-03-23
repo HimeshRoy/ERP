@@ -7,6 +7,11 @@ body{
     background-color: #90BE6D;
 }
 
+main{
+    height: 100vh;
+    width: 100vw;
+}
+
 .notification-section{
     position: relative;
     top: 60px;
@@ -22,4 +27,17 @@ body{
     border-radius: 20px;
     height: 50px;
     background-color: rgb(242, 247, 202, 0.5);
+}
+
+#notificationContainer{
+max-height:300px;
+overflow-y:auto;
+width:100%;
+}
+
+.notification-card{
+background:rgba(242,247,202,0.7);
+padding:10px;
+border-radius:15px;
+margin-bottom:10px;
 }
