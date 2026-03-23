@@ -33,3 +33,22 @@ body {
     border-radius: 20px;
     border: 2px solid var(--secondary-color);
 }
+
+.password-box{
+position:relative;
+}
+
+.password-box i{
+
+position:absolute;
+
+right:12px;
+top:50%;
+
+transform:translateY(-50%);
+
+cursor:pointer;
+
+color:gray;
+
+}
