@@ -78,6 +78,61 @@ def get_student_profile(user_id):
         "address": address
     })
 
+@app.route('/staff/profile/<int:user_id>', methods=['GET'])
+def get_staff_profile(user_id):
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    cur.execute("SELECT name, faculty_id, department, email, dob, mobile_no, joining_year, address FROM staff WHERE user_id = ?", (user_id,))
+    staff = cur.fetchone()
+    
+    connection.close()
+
+    if staff is None:
+        return jsonify({"success": False, "message": "Profile not found"})
+
+    name, faculty_id, department, email, dob, mobile_no, joining_year, address = staff
+
+    return jsonify({
+        "name": name,
+        "faculty_id": faculty_id,
+        "department": department,
+        "email": email,
+        "dob": dob,
+        "mobile": mobile_no,
+        "joining_year": joining_year,
+        "address": address
+    })
+
+@app.route('/admin/add-student', methods=['POST'])
+def add_student():
+    data = request.get_json()
+    
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    try:
+        cur.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+                    (data['username'], data['password'], 'student'))
+        
+        user_id = cur.lastrowid
+        
+        cur.execute("""INSERT INTO students 
+            (user_id, name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (user_id, data['name'], data['roll_no'], data['email'], 
+             data['father_name'], data['mother_name'], data['dob'], 
+             data['mobile_no'], data['admission_year'], data['address']))
+        
+        connection.commit()
+        connection.close()
+        return jsonify({"success": True, "message": "Student added successfully"})
+    
+    except Exception as e:
+        connection.close()
+        return jsonify({"success": False, "message": str(e)})
+    
+
 @app.route('/notifications', methods=['GET'])
 def get_notifications():
     connection = sqlite3.connect(DB_PATH)
