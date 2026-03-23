@@ -78,6 +78,33 @@ def get_student_profile(user_id):
         "address": address
     })
 
+@app.route('/admin/add-student', methods=['POST'])
+def add_student():
+    data = request.get_json()
+    
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    try:
+        cur.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+                    (data['username'], data['password'], 'student'))
+        
+        user_id = cur.lastrowid
+        
+        cur.execute("""INSERT INTO students 
+            (user_id, name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (user_id, data['name'], data['roll_no'], data['email'], 
+             data['father_name'], data['mother_name'], data['dob'], 
+             data['mobile_no'], data['admission_year'], data['address']))
+        
+        connection.commit()
+        connection.close()
+        return jsonify({"success": True, "message": "Student added successfully"})
+    
+    except Exception as e:
+        connection.close()
+        return jsonify({"success": False, "message": str(e)})
 
 if __name__ == '__main__':
     app.run(debug=True)
