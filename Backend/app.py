@@ -1,12 +1,16 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import os  
 
 app = Flask(__name__)
 CORS(app)
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'erp.db')
+
 def login(username, password):
-    connection = sqlite3.connect('erp.db')
+    connection = sqlite3.connect(DB_PATH)
     cur = connection.cursor()
 
     cur.execute("SELECT id, password, role FROM users WHERE username = ?", (username,))
@@ -49,7 +53,7 @@ def handle_login():
 
 @app.route('/student/profile/<int:user_id>', methods=['GET'])
 def get_student_profile(user_id):
-    connection = sqlite3.connect('erp.db')
+    connection = sqlite3.connect(DB_PATH)
     cur = connection.cursor()
     
     cur.execute("SELECT name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address FROM students WHERE user_id = ?", (user_id,))
@@ -74,6 +78,44 @@ def get_student_profile(user_id):
         "address": address
     })
 
+@app.route('/notifications', methods=['GET'])
+def get_notifications():
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    cur.execute("SELECT title, message, date FROM notifications ORDER BY id DESC")
+    rows = cur.fetchall()
+    
+    connection.close()
+    
+    notifications = []
+    for row in rows:
+        notifications.append({
+            "title": row[0],
+            "message": row[1],
+            "date": row[2]
+        })
+    
+    return jsonify({"notifications": notifications})
+
+
+@app.route('/notifications', methods=['POST'])
+def add_notification():
+    data = request.get_json()
+    
+    from datetime import datetime
+    date = datetime.now().strftime("%d-%m-%Y")
+    
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    cur.execute("INSERT INTO notifications (title, message, date) VALUES (?, ?, ?)",
+                (data['title'], data['message'], date))
+    
+    connection.commit()
+    connection.close()
+    
+    return jsonify({"success": True, "message": "Notification added"})
 
 if __name__ == '__main__':
     app.run(debug=True)
