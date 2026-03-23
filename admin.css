@@ -33,7 +33,7 @@ main {
 
 
 
-main .classes {
+main .management-section {
     position: relative;
     top: 60px;
 
@@ -65,9 +65,9 @@ main .attendance-section .attendance-div {
     border-radius: 20px;
 }
 
-main .assessment-section {
+main .total-section {
     position: relative;
-    top: 80px;
+    top: 60px;
 }
 
 .btn {
@@ -228,6 +228,27 @@ main .facility-section .facility-tags {
 
 .setting-item:last-child {
     border-bottom: none;
+}
+
+.total-div {
+    margin-top: 20px;
+}
+
+.total-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-card h5 {
+    font-size: 14px;
+    color: #555;
+}
+
+.total-card h3 {
+    font-weight: bold;
+    color: #173500;
 }
 
 .events-list {
