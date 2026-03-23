@@ -26,3 +26,17 @@ CREATE TABLE notifications (
     message TEXT NOT NULL,
     date TEXT NOT NULL
 );
+
+CREATE TABLE staff (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    name TEXT NOT NULL,
+    faculty_id TEXT UNIQUE NOT NULL,
+    department TEXT,
+    email TEXT UNIQUE NOT NULL,
+    dob TEXT,
+    mobile_no INTEGER,
+    joining_year TEXT,
+    address TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
