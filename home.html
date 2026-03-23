@@ -15,57 +15,20 @@
 <body>
     <section class="container-lg welcomeDiv">
         <div class="row">
-            <h1 class="text-center my-5">Good Morning, Sumon</h1>
+            <h1 id="welcomeName" class="text-center my-5"></h1>
+            <!-- greeting has made dynamic by Himesh Roy-->
         </div>
     </section>
 
     <main>
+        <!-- dynamic time table added by Himesh Roy-->
         <section class="container-lg classes">
             <div class="row">
                 <h2>Today's Classes</h2>
             </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Human Anatomy
-                </div>
-                <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 23
-                    </span>
-                    <br>
-                    <span>
-                        11:00 - 13:00
-                    </span>
-                </div>
-            </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Oral Histology
-                </div>
-                <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 11
-                    </span>
-                    <br>
-                    <span>
-                        13:20 - 15:00
-                    </span>
-                </div>
-            </div>
-            <div class="row class-cards">
-                <div class="col-6 fw-medium">
-                    Period-ontology
-                </div>
-                <div class="col-6 text-end">
-                    <span class="fw-medium">
-                        Room No. 06
-                    </span>
-                    <br>
-                    <span>
-                        15:20 - 17:00
-                    </span>
-                </div>
-            </div>
+
+            <div id="classesContainer"></div>
+
         </section>
 
         <section class="container-lg attendance-section">
@@ -76,13 +39,9 @@
                             <h2>Attendance</h2>
                         </div>
                         <div class="row fw-normal">
-                            <span>
-                                Total Lectures : 65
-                            </span>
+                            <span id="totalLectures"></span>
                             <br>
-                            <span>
-                                Total Attended : 60
-                            </span>
+                            <span id="attendedLectures"></span>
                         </div>
                         <div class="row my-3">
                             <span>
@@ -192,13 +151,16 @@
                 <div id="settingsOverlay" class="settings-overlay">
                     <div class="d-flex flex-column justify-content-center align-items-end">
                         <a href="#" class="setting-item" title="Help & Support">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
-                    <a href="index.html" class="setting-item" title="Logout">             
-                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
-                    </a> 
-                    <a href="#" class="setting-item" title="about">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
-                    </a>
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support
+                            </div>
+                        </a>
+                        <a href="index.html" class="setting-item" title="Logout">
+                            <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout
+                            </div>
+                        </a>
+                        <a href="#" class="setting-item" title="about">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                        </a>
                     </div>
                 </div>
                 <a class="col-3" title="settings">
@@ -218,7 +180,46 @@
 
     <!-- Itearation -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JS script function and call -->
     <script>
+
+        // redirect to login if not logged in
+        // protect page
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
+
+        // greeting function
+        function getGreeting() {
+
+            const hour = new Date().getHours()
+
+            if (hour >= 5 && hour < 12) {
+                return "Good Morning"
+            }
+            else if (hour >= 12 && hour < 17) {
+                return "Good Afternoon"
+            }
+            else if (hour >= 17 && hour < 21) {
+                return "Good Evening"
+            }
+            else {
+                return "Good Night"
+            }
+
+        }
+
+        // get stored user
+        const userName = localStorage.getItem("userName")
+
+        const greeting = getGreeting()
+
+        document.getElementById("welcomeName").innerText =
+            `${greeting}, ${userName}`
+
+        /* Greeting and redirect added by Himesh Roy*/
+
         document.addEventListener('DOMContentLoaded', function () {
 
             var calendarEl = document.getElementById('calendar');
@@ -246,23 +247,98 @@
             calendar.render();
 
         });
+        /* calendar added by Himesh Roy*/
 
-        //Iteration
-        let totalLectures = 65;
-        let attended = 60;
-        let absent = totalLectures - attended;
+        async function loadClasses() { // class time tabel function addedd by Himesh Roy
 
-        const data = {
-            datasets: [{
-                data: [attended, absent],
-                backgroundColor: ['#28a745', '#6c757d']
-            }]
-        };
+            const userId = localStorage.getItem("userId")
 
-        new Chart(document.getElementById('attendanceChart'), {
-            type: 'pie',
-            data: data
-        });
+            const response = await fetch(
+                `https://erp-y6ur.onrender.com/student/classes/${userId}`
+            )
+
+            const data = await response.json()
+
+            const container = document.getElementById("classesContainer")
+
+            container.innerHTML = ""
+
+            if (data.classes.length === 0) {
+
+                container.innerHTML =
+                    `<div class="row class-cards">
+                     <div class="col text-center">
+                       No classes assigned
+                          </div>
+                      </div>`
+
+                return
+            }
+
+            data.classes.forEach(c => {
+
+                const div = document.createElement("div")
+
+                div.className = "row class-cards"
+
+                div.innerHTML = `
+               <div class="col-6 fw-medium">
+               ${c.subject}
+                  </div>
+
+                <div class="col-6 text-end">
+           <span class="fw-medium">
+         Room No. ${c.room}
+           </span>
+                 <br>
+          <span>
+             ${c.time}
+               </span>
+                       </div>
+                     `
+
+                container.appendChild(div)
+
+            })
+
+        }
+
+        // Dynamic attendance chart function rewrite by Himesh Roy
+        async function loadAttendance() {
+
+            const userId = localStorage.getItem("userId")
+
+            const response = await fetch(
+                `https://erp-y6ur.onrender.com/student/attendance/${userId}`
+            )
+
+            const data = await response.json()
+
+            const total = data.total
+            const present = data.present
+            const absent = total - present
+
+            // update text
+            document.getElementById("totalLectures").innerText =
+                `Total Lectures : ${total}`
+
+            document.getElementById("attendedLectures").innerText =
+                `Total Attended : ${present}`
+
+            // update chart
+            const chartData = {
+                datasets: [{
+                    data: [present, absent],
+                    backgroundColor: ['#28a745', '#6c757d']
+                }]
+            }
+
+            new Chart(document.getElementById('attendanceChart'), {
+                type: 'pie',
+                data: chartData
+            })
+
+        }
 
         /* js for settings function*/
 
@@ -279,6 +355,9 @@
             }
 
         });
+
+        loadClasses() // function call for class time tabel added by Himesh Roy
+        loadAttendance() // function call for attendance chart added by Himesh Roy
 
     </script>
 
