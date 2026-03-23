@@ -93,7 +93,7 @@
 
         <section class="container-lg menu-bar">
             <div class="row">
-                <a href="notification.html" class="col-3" title="notification">
+                <a href="AdminNotif.html" class="col-3" title="notification">
                     <div class="items-card">
                         <i class="fa-solid fa-bell fs-5 fw-bold"></i>
                     </div>
@@ -103,7 +103,7 @@
                         <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
                     </div>
                 </a>
-                <a href="faculty.html" class="col-3" title="home">
+                <a href="admin.html" class="col-3" title="home">
                     <div class="items-card">
                         <i class="fa-solid fa-house fs-5 fw-bold"></i>
                     </div>
@@ -170,10 +170,11 @@
         });
 
         // redirect to login if not logged in
-        /* protect page
+        // protect page
+
         if (!localStorage.getItem("userId")) {
             window.location.href = "index.html"
-        } */
+        }
 
         // load admin totals function added by Himesh Roy
         async function loadAdminTotals() {
