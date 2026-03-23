@@ -30,6 +30,8 @@
 
                     <input type="text" id="facultyID" placeholder="Faculty ID" class="form-control mb-2" required>
 
+                    <input type="text" id="department" placeholder="Department" class="form-control mb-2" required>
+
                     <input type="email" id="facultyEmail" placeholder="Email" class="form-control mb-2" required>
 
                     <input type="text" id="mobile" placeholder="Mobile Number" class="form-control mb-2" required>
@@ -181,6 +183,7 @@ Delete
 
                 const name = document.getElementById("fecultyName").value
                 const facultyID = document.getElementById("facultyID").value
+                const department = document.getElementById("department").value
                 const email = document.getElementById("facultyEmail").value
                 const mobile = document.getElementById("mobile").value
                 const dob = document.getElementById("dob").value
@@ -201,7 +204,8 @@ Delete
                             mobile,
                             dob,
                             joining_year: admissionYear,
-                            address
+                            address,
+                            department
                         })
                     })
 
