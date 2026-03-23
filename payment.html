@@ -17,7 +17,8 @@
 <body>
   <section class="container-lg welcomeDiv">
     <div class="row">
-      <h1 class="text-center my-5">Good Morning, Sumon</h1>
+      <h1 id="welcomeName" class="text-center my-5"></h1>
+      <!-- greeting has made dynamic by Himesh Roy-->
     </div>
   </section>
 
@@ -79,76 +80,75 @@
 
     <section class="payment-section container-lg">
       <div class="row d-flex justify-content-center align-items-center my-3">
-      <button
-        class="w-75 btn"
-        id="pay-now-button">
-        Pay Now ₹11,000
-      </button>
+        <button class="w-75 btn" id="pay-now-button">
+          Pay Now ₹11,000
+        </button>
       </div>
 
       <!-- Payment History -->
       <section class="payment-history-section container-lg pt-4" id="payment-history-section">
         <h3>Payment History</h3>
-          <div class="row p-3 d-flex">
-            <div>
-              <span class="text-lg fw-medium ">Semester 5 Fee</span>
-              <span class="text-xl fw-medium">₹11,000</span>
-            </div>
-            <div class="text-right">
-              <span class="text-success font-medium">Paid</span>
-              <span class="text-secondary font-normal">15 Jan 2026</span>
-            </div>
+        <div class="row p-3 d-flex">
+          <div>
+            <span class="text-lg fw-medium ">Semester 5 Fee</span>
+            <span class="text-xl fw-medium">₹11,000</span>
           </div>
-          <div class="row p-3 d-flex">
-            <div>
-              <span class="text-lg fw-medium">Semester 4 Fee</span>
-              <span class="text-xl fw-medium">₹11,000</span>
-            </div>
-            <div class="text-right">
-              <span class="text-success font-medium">Paid</span>
-              <span class="text-secondary font-normal">20 Jul 2025</span>
-            </div>
+          <div class="text-right">
+            <span class="text-success font-medium">Paid</span>
+            <span class="text-secondary font-normal">15 Jan 2026</span>
           </div>
+        </div>
+        <div class="row p-3 d-flex">
+          <div>
+            <span class="text-lg fw-medium">Semester 4 Fee</span>
+            <span class="text-xl fw-medium">₹11,000</span>
+          </div>
+          <div class="text-right">
+            <span class="text-success font-medium">Paid</span>
+            <span class="text-secondary font-normal">20 Jul 2025</span>
+          </div>
+        </div>
       </section>
     </section>
 
-   <section class="container-lg menu-bar">
-            <div class="row">
-                <a href="notification.html" class="col-3" title="notification">
-                    <div class="items-card">
-                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
-                    </div>
-                </a>
-                <a href="profile.html" class="col-3" title="profile">
-                    <div class="items-card">
-                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
-                    </div>
-                </a>
-                <a href="home.html" class="col-3" title="home">
-                    <div class="items-card">
-                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
-                    </div>
-                </a>
-                <div id="settingsOverlay" class="settings-overlay">
-                    <div class="d-flex flex-column justify-content-center align-items-end">
-                        <a href="#" class="setting-item" title="Help & Support">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
-                    <a href="index.html" class="setting-item" title="Logout">             
-                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
-                    </a> 
-                    <a href="#" class="setting-item" title="about">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
-                    </a>
-                    </div>
-                </div>
-                <a class="col-3" title="settings">
-                    <div class="items-card">
-                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
-                    </div>
-                </a>
+    <section class="container-lg menu-bar">
+      <div class="row">
+        <a href="notification.html" class="col-3" title="notification">
+          <div class="items-card">
+            <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+          </div>
+        </a>
+        <a href="profile.html" class="col-3" title="profile">
+          <div class="items-card">
+            <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+          </div>
+        </a>
+        <a href="home.html" class="col-3" title="home">
+          <div class="items-card">
+            <i class="fa-solid fa-house fs-5 fw-bold"></i>
+          </div>
+        </a>
+        <div id="settingsOverlay" class="settings-overlay">
+          <div class="d-flex flex-column justify-content-center align-items-end">
+            <a href="#" class="setting-item" title="Help & Support">
+              <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div>
+            </a>
+            <a href="index.html" class="setting-item" title="Logout">
+              <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
+            </a>
+            <a href="#" class="setting-item" title="about">
+              <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+            </a>
+          </div>
+        </div>
+        <a class="col-3" title="settings">
+          <div class="items-card">
+            <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+          </div>
+        </a>
 
-            </div>
-        </section>
+      </div>
+    </section>
 
 
   </main>
@@ -157,22 +157,58 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-        
-        /* js for settings function*/
-        const settingsBtn = document.getElementById("settingsBtn");
-        const overlay = document.getElementById("settingsOverlay");
 
-        settingsBtn.addEventListener("click", function () {
+    // redirect to login if not logged in
+    // protect page
+    if (!localStorage.getItem("userId")) {
+      window.location.href = "index.html"
+    }
 
-            if (overlay.style.display === "block") {
-                overlay.style.display = "none";
-            }
-            else {
-                overlay.style.display = "block";
-            }
+    // greeting function
+    function getGreeting() {
 
-        });
-    </script>
+      const hour = new Date().getHours()
+
+      if (hour >= 5 && hour < 12) {
+        return "Good Morning"
+      }
+      else if (hour >= 12 && hour < 17) {
+        return "Good Afternoon"
+      }
+      else if (hour >= 17 && hour < 21) {
+        return "Good Evening"
+      }
+      else {
+        return "Good Night"
+      }
+
+    }
+
+    // get stored user
+    const userName = localStorage.getItem("userName")
+
+    const greeting = getGreeting()
+
+    document.getElementById("welcomeName").innerText =
+      `${greeting}, ${userName}`
+
+    /* Greeting and redirect added by Himesh Roy*/
+
+    /* js for settings function*/
+    const settingsBtn = document.getElementById("settingsBtn");
+    const overlay = document.getElementById("settingsOverlay");
+
+    settingsBtn.addEventListener("click", function () {
+
+      if (overlay.style.display === "block") {
+        overlay.style.display = "none";
+      }
+      else {
+        overlay.style.display = "block";
+      }
+
+    });
+  </script>
 
 
 </body>
