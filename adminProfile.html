@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Faculty</title>
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <title>Profile - Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="facultyProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
     <link rel="shortcut icon" href="fav.png" type="image/x-icon">
 </head>
+
 <body>
     <section class="container-lg welcomeDiv">
         <div class="row">
@@ -22,14 +24,15 @@
         <section class="notification-section hero-section">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png" alt="" class="rounded-circle" width="100%">
+                    <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png" alt=""
+                        class="rounded-circle" width="100%">
                 </div>
-                 <div class="col-8 d-flex flex-column justify-content-center">
+                <div class="col-8 d-flex flex-column justify-content-center">
                     <h4 id="fullName">Dr. Ranjita Kaur</h4>
                     <p>Faculty ID.: <span id="facultyId">2501101</span> <br>
                         <span id="department">Faculty of Medicine / BDS</span>
                     </p>
-                 </div>
+                </div>
             </div>
             <div class="row my-5 text-center d-flex justify-content-center align-items-center">
                 <a href="#" class="btn w-75 rounded-3">View Payments</a>
@@ -39,19 +42,24 @@
         <section class="container-lg details-section ">
             <div class="row d-flex justify-content-center align-items-center p-3">
                 <div class="details-div p-3">
-                    <p class="my-3"><span class="fs-6 fw-medium">Email Id :</span> <span class="text-secondary" id="email">ranjitkaur@soms.edu.in</span></p>
+                    <p class="my-3"><span class="fs-6 fw-medium">Email Id :</span> <span class="text-secondary"
+                            id="email">ranjitkaur@soms.edu.in</span></p>
 
                     <p class="w-auto">
-                        <span class="fs-6 fw-medium">Date of Birth :</span> <span class="text-secondary" id="dob">10-08-1990</span>
+                        <span class="fs-6 fw-medium">Date of Birth :</span> <span class="text-secondary"
+                            id="dob">10-08-1990</span>
                     </p>
                     <p class="w-auto">
-                        <span class="fs-6 fw-medium">Mobile No. : </span> <span class="text-secondary" id="mobile">+91 912XXXXXX1</span>
+                        <span class="fs-6 fw-medium">Mobile No. : </span> <span class="text-secondary" id="mobile">+91
+                            912XXXXXX1</span>
                     </p>
                     <p class="w-auto">
-                        <span class="fs-6 fw-medium">Joining year : </span> <span class="text-secondary" id="joiningYear">2024-25</span>
+                        <span class="fs-6 fw-medium">Joining year : </span> <span class="text-secondary"
+                            id="joiningYear">2024-25</span>
                     </p>
                     <p class="w-auto">
-                        <span class="fs-6 fw-medium">Address : </span> <span class="text-secondary" id="address">Delhi, India</span>
+                        <span class="fs-6 fw-medium">Address : </span> <span class="text-secondary" id="address">Delhi,
+                            India</span>
                     </p>
                 </div>
             </div>
@@ -77,13 +85,16 @@
                 <div id="settingsOverlay" class="settings-overlay">
                     <div class="d-flex flex-column justify-content-center align-items-end">
                         <a href="#" class="setting-item" title="Help & Support">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
-                    <a href="index.html" class="setting-item" title="Logout">             
-                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
-                    </a> 
-                    <a href="#" class="setting-item" title="about">
-                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
-                    </a>
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support
+                            </div>
+                        </a>
+                        <a href="index.html" class="setting-item" title="Logout">
+                            <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout
+                            </div>
+                        </a>
+                        <a href="#" class="setting-item" title="about">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                        </a>
                     </div>
                 </div>
                 <a class="col-3" title="settings">
@@ -95,19 +106,19 @@
             </div>
         </section>
     </main>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        
+
         // redirect to login if not logged in
         // protect page
         if (!localStorage.getItem("userId")) {
             window.location.href = "index.html"
         }
 
-        
+
         /* js for settings function*/
         const settingsBtn = document.getElementById("settingsBtn");
         const overlay = document.getElementById("settingsOverlay");
@@ -123,7 +134,7 @@
 
         });
 
-        const user = JSON.parse(localStorage.getItem('user')) 
+        const user = JSON.parse(localStorage.getItem('user'))
         const userId = localStorage.getItem('userId')
         const userName = localStorage.getItem('userName')
 
@@ -147,8 +158,12 @@
             document.getElementById('department').innerText = profile.department
         }
 
+        // change page title
+        document.title = `Profile - ${userName}`
+
         loadFacultyProfile()
     </script>
 
 </body>
+
 </html>

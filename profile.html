@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Sumon</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="styles.css">
@@ -128,9 +128,12 @@
             window.location.href = "index.html"
         }
 
-        
+
         // greeting function
         const userName = localStorage.getItem("userName") || "Student"
+
+        // change page title
+        document.title = `Profile - ${userName}`
 
         document.getElementById("profileGreeting").innerText =
             `Welcome ${userName}`
