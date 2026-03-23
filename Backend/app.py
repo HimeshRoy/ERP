@@ -32,11 +32,22 @@ def login(username, password):
         cur.execute("SELECT name, roll_no, email FROM students WHERE user_id = ?", (user_id,))
         student = cur.fetchone()
         if student:
-            name, roll_no, email= student
+            name, roll_no, email = student
             result["profile"] = {
                 "name": name,
                 "roll_no": roll_no,
                 "email": email,
+            }
+
+    elif role in ("admin", "teacher"):
+        cur.execute("SELECT name, email, department FROM staff WHERE user_id = ?", (user_id,))
+        staff = cur.fetchone()
+        if staff:
+            name, email, department = staff
+            result["profile"] = {
+                "name": name,
+                "email": email,
+                "department": department,
             }
 
     connection.close()
