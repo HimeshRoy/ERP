@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Faculty</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="facultyProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+</head>
+<body>
+    <section class="container-lg welcomeDiv">
+        <div class="row">
+            <h1 class="text-center my-5" id="welcomeName">Welcome Dr. Kaur</h1>
+        </div>
+    </section>
+
+    <main>
+        <section class="notification-section hero-section">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png" alt="" class="rounded-circle" width="100%">
+                </div>
+                 <div class="col-8 d-flex flex-column justify-content-center">
+                    <h4 id="fullName">Dr. Ranjita Kaur</h4>
+                    <p>Faculty ID.: <span id="facultyId">2501101</span> <br>
+                        <span id="department">Faculty of Medicine / BDS</span>
+                    </p>
+                 </div>
+            </div>
+            <div class="row my-5 text-center d-flex justify-content-center align-items-center">
+                <a href="#" class="btn w-75 rounded-3">View Payments</a>
+            </div>
+        </section>
+
+        <section class="container-lg details-section ">
+            <div class="row d-flex justify-content-center align-items-center p-3">
+                <div class="details-div p-3">
+                    <p class="my-3"><span class="fs-6 fw-medium">Email Id :</span> <span class="text-secondary" id="email">ranjitkaur@soms.edu.in</span></p>
+
+                    <p class="w-auto">
+                        <span class="fs-6 fw-medium">Date of Birth :</span> <span class="text-secondary" id="dob">10-08-1990</span>
+                    </p>
+                    <p class="w-auto">
+                        <span class="fs-6 fw-medium">Mobile No. : </span> <span class="text-secondary" id="mobile">+91 912XXXXXX1</span>
+                    </p>
+                    <p class="w-auto">
+                        <span class="fs-6 fw-medium">Joining year : </span> <span class="text-secondary" id="joiningYear">2024-25</span>
+                    </p>
+                    <p class="w-auto">
+                        <span class="fs-6 fw-medium">Address : </span> <span class="text-secondary" id="address">Delhi, India</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg menu-bar">
+            <div class="row">
+                <a href="AdminNotif.html" class="col-3" title="notification">
+                    <div class="items-card">
+                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="adminProfile.html" class="col-3" title="profile">
+                    <div class="items-card">
+                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="admin.html" class="col-3" title="home">
+                    <div class="items-card">
+                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <div id="settingsOverlay" class="settings-overlay">
+                    <div class="d-flex flex-column justify-content-center align-items-end">
+                        <a href="#" class="setting-item" title="Help & Support">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support</div> </a>
+                    <a href="index.html" class="setting-item" title="Logout">             
+                    <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout</div>
+                    </a> 
+                    <a href="#" class="setting-item" title="about">
+                    <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                    </a>
+                    </div>
+                </div>
+                <a class="col-3" title="settings">
+                    <div class="items-card">
+                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        
+        /* js for settings function*/
+        const settingsBtn = document.getElementById("settingsBtn");
+        const overlay = document.getElementById("settingsOverlay");
+
+        settingsBtn.addEventListener("click", function () {
+
+            if (overlay.style.display === "block") {
+                overlay.style.display = "none";
+            }
+            else {
+                overlay.style.display = "block";
+            }
+
+        });
+
+        const user = JSON.parse(localStorage.getItem('user')) 
+        const userId = localStorage.getItem('userId')
+        const userName = localStorage.getItem('userName')
+
+        if (!userId) {
+            window.location.href = "index.html"
+        }
+
+        document.getElementById('welcomeName').innerText = 'Welcome ' + userName
+
+        async function loadFacultyProfile() {
+            const response = await fetch(`https://erp-y6ur.onrender.com/staff/profile/${userId}`)
+            const profile = await response.json()
+
+            document.getElementById('fullName').innerText = profile.name
+            document.getElementById('facultyId').innerText = profile.faculty_id
+            document.getElementById('email').innerText = profile.email
+            document.getElementById('dob').innerText = profile.dob
+            document.getElementById('mobile').innerText = '+91 ' + profile.mobile
+            document.getElementById('joiningYear').innerText = profile.joining_year
+            document.getElementById('address').innerText = profile.address
+            document.getElementById('department').innerText = profile.department
+        }
+
+        loadFacultyProfile()
+    </script>
+
+</body>
+</html>
