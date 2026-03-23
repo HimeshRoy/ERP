@@ -105,6 +105,44 @@ def add_student():
     except Exception as e:
         connection.close()
         return jsonify({"success": False, "message": str(e)})
+@app.route('/notifications', methods=['GET'])
+def get_notifications():
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    cur.execute("SELECT title, message, date FROM notifications ORDER BY id DESC")
+    rows = cur.fetchall()
+    
+    connection.close()
+    
+    notifications = []
+    for row in rows:
+        notifications.append({
+            "title": row[0],
+            "message": row[1],
+            "date": row[2]
+        })
+    
+    return jsonify({"notifications": notifications})
+
+
+@app.route('/notifications', methods=['POST'])
+def add_notification():
+    data = request.get_json()
+    
+    from datetime import datetime
+    date = datetime.now().strftime("%d-%m-%Y")
+    
+    connection = sqlite3.connect(DB_PATH)
+    cur = connection.cursor()
+    
+    cur.execute("INSERT INTO notifications (title, message, date) VALUES (?, ?, ?)",
+                (data['title'], data['message'], date))
+    
+    connection.commit()
+    connection.close()
+    
+    return jsonify({"success": True, "message": "Notification added"})
 
 if __name__ == '__main__':
     app.run(debug=True)
