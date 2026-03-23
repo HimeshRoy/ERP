@@ -22,7 +22,7 @@ body {
 main {
     background-color: #C9E3AC;
     width: 100vw;
-    height: 200vh;
+    min-height: 100vh;
 
     border-radius: 50px 50px 0 0;
 
@@ -169,6 +169,17 @@ main .menu-bar .items-card {
     width: 100%;
     z-index: 2;
 }
+
+.MenuBar{
+    border: 2px solid black;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
 
 main .items-section p {
     margin: 0px 5px;

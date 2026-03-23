@@ -1,0 +1,20 @@
+#adminPanel {
+    position: relative;
+    top: 40px;
+}
+
+#adminPanel .card {
+    background-color: #EAEFBD;
+    border-radius: 20px;
+    border: none;
+}
+
+#adminPanel input,
+#adminPanel textarea {
+    border-radius: 10px;
+    border: none;
+    padding: 8px;
+}
+
+
+
