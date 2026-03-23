@@ -47,6 +47,33 @@ def handle_login():
     result = login(username, password)
     return jsonify(result)
 
+@app.route('/student/profile/<int:user_id>', methods=['GET'])
+def get_student_profile(user_id):
+    connection = sqlite3.connect('erp.db')
+    cur = connection.cursor()
+    
+    cur.execute("SELECT name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address FROM students WHERE user_id = ?", (user_id,))
+    student = cur.fetchone()
+    
+    connection.close()
+
+    if student is None:
+        return jsonify({"success": False, "message": "Profile not found"})
+
+    name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address = student
+
+    return jsonify({
+        "name": name,
+        "roll_no": roll_no,
+        "email": email,
+        "father_name": father_name,
+        "mother_name": mother_name,
+        "dob": dob,
+        "mobile": mobile_no,
+        "year": admission_year,
+        "address": address
+    })
+
 
 if __name__ == '__main__':
     app.run(debug=True)

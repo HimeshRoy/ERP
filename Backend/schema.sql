@@ -11,5 +11,11 @@ CREATE TABLE students (
     name TEXT NOT NULL,
     roll_no INTEGER UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
+    father_name TEXT,
+    mother_name TEXT,
+    dob TEXT,
+    mobile_no INTEGER,
+    admission_year TEXT,
+    address TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
