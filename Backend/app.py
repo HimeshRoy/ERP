@@ -1,12 +1,16 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import os  
 
 app = Flask(__name__)
 CORS(app)
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'erp.db')
+
 def login(username, password):
-    connection = sqlite3.connect('erp.db')
+    connection = sqlite3.connect(DB_PATH)
     cur = connection.cursor()
 
     cur.execute("SELECT id, password, role FROM users WHERE username = ?", (username,))
@@ -49,7 +53,7 @@ def handle_login():
 
 @app.route('/student/profile/<int:user_id>', methods=['GET'])
 def get_student_profile(user_id):
-    connection = sqlite3.connect('erp.db')
+    connection = sqlite3.connect(DB_PATH)
     cur = connection.cursor()
     
     cur.execute("SELECT name, roll_no, email, father_name, mother_name, dob, mobile_no, admission_year, address FROM students WHERE user_id = ?", (user_id,))
