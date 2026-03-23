@@ -218,3 +218,19 @@ main .facility-section .facility-tags {
 .setting-item:last-child {
     border-bottom: none;
 }
+
+.events-list{
+max-height:120px;
+overflow-y:auto;
+margin-top:10px;
+}
+
+.event-card{
+background:#ffffff;
+border-radius:10px;
+padding:8px;
+margin-bottom:8px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
