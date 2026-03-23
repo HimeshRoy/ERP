@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Medical Science - home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="faculty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="container-lg welcomeDiv">
+        <div class="row">
+            <h1 class="text-center my-5">Good Morning, Dr. Kaur</h1>
+        </div>
+    </section>
+
+    <main>
+        <section class="container-lg classes">
+            <div class="row">
+                <h2>Today's Classes</h2>
+            </div>
+            <div class="row class-cards">
+                <div class="col-6 fw-medium">
+                    Human Anatomy 2nd Semester
+                </div>
+                <div class="col-6 text-end">
+                    <span class="fw-medium">
+                        Room No. 23
+                    </span>
+                    <br>
+                    <span>
+                        11:00 - 13:00
+                    </span>
+                </div>
+            </div>
+            <div class="row class-cards">
+                <div class="col-6 fw-medium">
+                    Human Anatomy 4th Semester
+                </div>
+                <div class="col-6 text-end">
+                    <span class="fw-medium">
+                        Room No. 13
+                    </span>
+                    <br>
+                    <span>
+                        13:20 - 15:00
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg attendance-section">
+            <div class="attendance-div">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <h2> Take Attendance</h2>
+                        </div>
+                        <div class="row fw-normal">
+                            <span>
+                                No Lectures Currently
+                            </span>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg assessment-section">
+            <div class="row">
+                <h2>Academic Calendar</h2>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div id="calendar">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg items-section">
+            <div class="row">
+                <h2>Upload Assignment</h2>
+                <div class="col d-flex flex-column justify-content-center align-items-center">
+
+                    <select class="form-select my-2" aria-label="Default select example">
+                        <option selected>Assignment Type</option>
+                        <option value="1">Presentation</option>
+                        <option value="2">Group Discusion</option>
+                        <option value="3">Case Study</option>
+                        <option value="4">Suprise Test</option>
+                    </select>
+
+                    <div class="mb-2 w-100">
+                        <label for="subjectInput" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subjectInput"
+                            placeholder="Enter Subject Name...">
+                    </div>
+                    <div class="mb-2 w-100">
+                        <label for="questionInput" class="form-label">Topic / Question</label>
+                        <input type="text" class="form-control w-100" id="questionInput"
+                            placeholder="Enter topics or questions...">
+                    </div>
+
+                    <div class="w-100">
+                        <label for="dateTime">Select Due Date</label>
+                    <input type="datetime-local" name="" id="dateTime" title="date-time" class="form-control w-100">
+                    </div>
+                    <div class="w-100 text-center">
+                        <button class="btn w-75 my-4" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg items-section">
+            <div class="row">
+                <h2>Upload Notes</h2>
+                <div class="col d-flex flex-column justify-content-center align-items-center">
+
+                    <div class="mb-2 w-100">
+                        <label for="subjectInput" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subjectInput"
+                            placeholder="Enter Subject Name...">
+                    </div>
+                    <div class="mb-2 w-100">
+                        <label for="questionInput" class="form-label">Topic / Question</label>
+                        <input type="text" class="form-control w-100" id="questionInput"
+                            placeholder="Enter topics or questions...">
+                    </div>
+
+                    <div class="w-100">
+                        <label for="fileInput"></label>
+                        <input type="file" title="file" class="form-control w-100" id="fileInput">
+                    </div>
+                    <div class="w-100 text-center">
+                        <button class="btn w-75 my-4" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg events-section">
+            <div class="container-lg events-div p-3">
+                <div class="row">
+                    <h2>Events</h2>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="container-lg facility-section">
+            <div class="row">
+                <h2>Facilities</h2>
+            </div>
+            <div class="row d-flex flex-column justify-content-center align-items-center">
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between align-items-center">
+                    <h6 class="d-inline">Check Students Details</h6>
+                </a>
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between align-items-center">
+                    <h6 class="d-inline">Tickit System</h6>
+                </a>
+                <a href="#" class="facility-tags text-decoration-none text-dark d-flex justify-content-between align-items-center">
+                    <h6 class="d-inline d-flex">Emergency Contact</h6> <span>+91 9009XXXXX0</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="container-lg menu-bar">
+            <div class="row">
+                <a href="notification.html" class="col-3" title="notification">
+                    <div class="items-card">
+                        <i class="fa-solid fa-bell fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="profile.html" class="col-3" title="profile">
+                    <div class="items-card">
+                        <i class="fa-solid fa-circle-user fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <a href="home.html" class="col-3" title="home">
+                    <div class="items-card">
+                        <i class="fa-solid fa-house fs-5 fw-bold"></i>
+                    </div>
+                </a>
+                <div id="settingsOverlay" class="settings-overlay">
+                    <div class="d-flex flex-column justify-content-center align-items-end">
+                        <a href="#" class="setting-item" title="Help & Support">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-gears"></i> Help & Support
+                            </div>
+                        </a>
+                        <a href="index.html" class="setting-item" title="Logout">
+                            <div class=" text-end d-inline w-auto"> <i class="fa-solid fa-right-from-bracket"></i>Logout
+                            </div>
+                        </a>
+                        <a href="#" class="setting-item" title="about">
+                            <div class=" text-end d-inline w-auto"><i class="fa-solid fa-circle-info"></i> About</div>
+                        </a>
+                    </div>
+                </div>
+                <a class="col-3" title="settings">
+                    <div class="items-card">
+                        <i id="settingsBtn" class="fa-solid fa-gear fs-5 fw-bold"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+    <!-- Itearation -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+
+                events: [
+                    {
+                        title: 'Assignment Submission',
+                        start: '2026-04-24'
+                    },
+                    {
+                        title: 'Histology Test',
+                        start: '2026-04-26'
+                    },
+                    {
+                        title: 'Periodontology Viva',
+                        start: '2026-04-30'
+                    }
+                ]
+
+            });
+
+            calendar.render();
+
+        });
+
+        //Iteration
+        let totalLectures = 65;
+        let attended = 60;
+        let absent = totalLectures - attended;
+
+        const data = {
+            datasets: [{
+                data: [attended, absent],
+                backgroundColor: ['#28a745', '#6c757d']
+            }]
+        };
+
+        new Chart(document.getElementById('attendanceChart'), {
+            type: 'pie',
+            data: data
+        });
+
+        /* js for settings function*/
+
+        const settingsBtn = document.getElementById("settingsBtn");
+        const overlay = document.getElementById("settingsOverlay");
+
+        settingsBtn.addEventListener("click", function () {
+
+            if (overlay.style.display === "block") {
+                overlay.style.display = "none";
+            }
+            else {
+                overlay.style.display = "block";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
