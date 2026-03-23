@@ -22,6 +22,7 @@ body {
 main {
     background-color: #C9E3AC;
     width: 100vw;
+    height: 200vh;
     min-height: 100vh;
 
     border-radius: 50px 50px 0 0;
