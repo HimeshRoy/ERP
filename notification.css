@@ -3,33 +3,45 @@
     margin: 0;
 }
 
+:root {
+
+    --primary-color: #061E29;
+    --secondary-color: #1D546D;
+    --accent-color: #5F9598;
+    --background-color: #F3F4F4;
+
+    --card-color: #ffffff;
+    --text-dark: #061E29;
+    --text-light: #ffffff;
+
+}
+
 body{
-    background-color: #90BE6D;
-    position: sticky;
-    top: 0;
+    background-color: var(--primary-color);
 }
 
 .notification-main{
     height: 80vh;
-    width: 100vw;
-    position: sticky;
+    width: 100%;
 }
 
 .notification-section{
-    position: relative;
-    top: 60px;
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+/* message div */
+
 .notification-section .msg-div{
-    width: 100%;
-    margin: 5px 10px;
-    border-radius: 20px;
-    height: 50px;
-    background-color: rgb(242, 247, 202, 0.5);
+    width:100%;
+    margin:5px 10px;
+    border-radius:20px;
+    height:50px;
+
+    background:var(--accent-color);
 }
 
 #notificationContainer{
@@ -38,9 +50,22 @@ overflow-y:auto;
 width:100%;
 }
 
+/* notification card */
+
 .notification-card{
-background:rgb(251, 255, 236);
-padding:10px;
-border-radius:15px;
-margin-bottom:10px;
+    background:var(--card-color);
+    color:var(--text-dark);
+    padding:12px;
+    border-radius:15px;
+    margin-bottom:10px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+    transition:0.25s ease;
+}
+
+/* hover effect */
+
+.notification-card:hover{
+    transform:translateY(-2px);
 }

@@ -43,32 +43,32 @@
 
                     <button class="btn btn-success w-100" type="submit">
                         Add Member
-                    </button> 
+                    </button>
 
                 </form>
 
                 <hr>
 
                 <h3>All Members</h3>
+                <div class="table-container">
+                    <table class="table table-bordered">
 
-                <table class="table table-bordered">
+                        <thead>
 
-                    <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Faculty ID</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
 
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Faculty ID</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
+                        </thead>
 
-                    </thead>
+                        <tbody id="facultyTable"></tbody>
 
-                    <tbody id="facultyTable"></tbody>
-
-                </table>
-
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -156,9 +156,9 @@
 <td>${f.faculty_id}</td>
 <td>${f.email}</td>
 
-<td>
+<td class="text-center">
 <button onclick="deleteFaculty(${f.id})"
-class="btn btn-danger btn-sm">
+class="btn btn-danger btn-sm p-2">
 Delete
 </button>
 </td>

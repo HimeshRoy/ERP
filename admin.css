@@ -1,268 +1,170 @@
-* {
-    padding: 0;
-    margin: 0;
+*{
+    padding:0;
+    margin:0;
 }
 
-body {
-    background-color: #90BE6D;
+body{
+    background:var(--primary-color);
 }
 
-.welcomeDiv {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    height: 200px;
-    color: #ffffff;
+.welcomeDiv{
+    position:sticky;
+    top:0;
+    z-index:1;
+    height:200px;
+    color:var(--text-light);
 }
 
-.welcomeDiv h1 {
-    font-weight: bolder;
+.welcomeDiv h1{
+    font-weight:bolder;
 }
 
-main {
-    background-color: #C9E3AC;
-    width: 100vw;
-    height: 280vh;
+/* main container */
 
-    border-radius: 50px 50px 0 0;
+main{
+    background:var(--background-color);
+    width:100%;
+    min-height:100%;
+    height: 150vh;
 
-    margin-top: -80px;
-    position: relative;
-    z-index: 2;
+    border-radius:50px 50px 0 0;
+    margin-top:-80px;
+
+    position:relative;
+    z-index:2;
 }
 
+/* management section */
 
-
-main .management-section {
-    position: relative;
-    top: 60px;
-
+main .management-section{
+    padding-top: 50px;
 }
 
-main h2 {
-    font-weight: bold;
+main h2{
+    font-weight:bold;
+    color:var(--primary-color);
 }
 
+/* cards */
 
-main .classes .class-cards {
-    background-color: #EAEFBD;
-    border-radius: 20px;
-    padding: 5px;
-    margin: 10px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main .classes .class-cards,
+.assessment-card,
+.events-section .events-div,
+.facility-tags{
+
+    background:var(--card-color);
+    color:var(--text-dark);
+
+    border-radius:20px;
+    padding:10px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
-main .attendance-section {
-    position: relative;
-    top: 70px;
+/* attendance */
+
+.attendance-div{
+    background:var(--card-color);
+    padding:10px;
+    border-radius:20px;
 }
 
-main .attendance-section .attendance-div {
-    background-color: #F7F7F7;
-    padding: 10px;
-    border-radius: 20px;
+/* buttons */
+
+.btn{
+    background:var(--secondary-color);
+    color:var(--text-light);
+    border:none;
+    padding:10px 20px;
 }
 
-main .total-section {
-    position: relative;
-    top: 60px;
+.btn:hover{
+    background:var(--accent-color);
 }
 
-.btn {
-    background-color: #90BE6D;
-    padding: 0px 50px;
-    color: #ffffff;
-    font-weight: 500;
-    padding: 8px 0px;
+/* menu bar */
+
+.menu-bar{
+    position:fixed;
+    bottom:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.assessment-card {
-    background-color: #EAEFBD;
-    margin: 0px 5px;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 5px;
-    border-radius: 10px;
+.menu-bar .row{
+    background:var(--primary-color);
+    padding:10px;
+    border-radius:15px;
+    width:100%;
 }
 
-#calendar {
-    background: white;
-    border-radius: 20px;
-    padding: 10px;
-    width: 90%;
-    font-size: 12px;
-    z-index: 0;
+.menu-bar .items-card{
+    background:var(--card-color);
+    color:var(--primary-color);
 }
 
-.fc-toolbar-title {
-    font-size: 16px !important;
+/* facility tags */
+
+.facility-tags{
+    background:var(--card-color);
+    border-radius:15px;
 }
 
-main .items-section {
-    position: relative;
-    top: 100px;
-    background-color: #F7F7F7;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    margin: 20px;
-    width: 90%;
+/* settings */
+
+.setting-item{
+    padding:10px 15px;
+    background:var(--secondary-color);
+    color:var(--text-light);
+
+    border-radius:12px;
+    margin:6px 0;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
 }
 
-main .items-section .items-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #90BE6D;
-    padding: 10px 25px;
-    margin: 0px 5px;
-    border-radius: 15px;
-    color: #F7F7F7;
+.setting-item:hover{
+    background:var(--accent-color);
 }
 
-.items-section .row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+/* admin stats */
+
+.total-card{
+    margin: 20px 0px;
+    background:var(--card-color);
+    border-radius:15px;
+    padding:15px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-
-a {
-    text-decoration: none;
+.total-card h5{
+    font-size:14px;
 }
 
-.events-section .events-div {
-    width: 100%;
-    height: 150px;
-    background-color: #EAEFBD;
-    position: relative;
-    top: 120px;
-    border-radius: 15px;
+.total-card h3{
+    font-weight:bold;
+    color:var(--primary-color);
 }
 
-.menu-bar {
-    position: fixed;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* events */
+
+.events-list{
+    max-height:120px;
+    overflow-y:auto;
 }
 
-main .menu-bar .items-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 10px;
-    margin: 0px 5px;
-    border-radius: 15px;
-    color: #173500;
-}
+.event-card{
+    background:var(--card-color);
 
-.menu-bar .row {
-    background-color: #173500;
-    padding: 10px;
-    border-radius: 15px;
-    width: 100%;
-    z-index: 2;
-}
+    border-radius:10px;
+    padding:8px;
+    margin-bottom:8px;
 
-main .items-section p {
-    margin: 0px 5px;
-    color: #265303;
-    font-weight: 500;
-}
-
-main .facility-section {
-    position: relative;
-    top: 150px;
-
-}
-
-main .facility-section .facility-tags {
-    background-color: #EAEFBD;
-    padding: 10px;
-    width: 90%;
-    margin: 5px 0px;
-    border-radius: 15px;
-
-}
-
-.settings-overlay {
-    position: fixed;
-
-    bottom: 90px;
-    /* navbar ke thoda upar */
-    right: 30px;
-    /* settings icon ke near */
-
-
-    display: none;
-
-    z-index: 999;
-}
-
-.setting-item {
-    padding: 10px 15px;
-    background: #004314;
-    color: white;
-    border-radius: 12px;
-    margin: 6px 0;
-    cursor: pointer;
-    text-align: right;
-    transition: 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-}
-
-.setting-item:last-child {
-    border-bottom: none;
-}
-
-.total-div {
-    margin-top: 20px;
-}
-
-.total-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.total-card h5 {
-    font-size: 14px;
-    color: #555;
-}
-
-.total-card h3 {
-    font-weight: bold;
-    color: #173500;
-}
-
-.events-list {
-    max-height: 120px;
-    overflow-y: auto;
-    margin-top: 10px;
-}
-
-.event-card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 8px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }

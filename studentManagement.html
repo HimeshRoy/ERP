@@ -55,25 +55,28 @@
 
                 <h3>All Students</h3>
 
-                <table class="table table-bordered">
+                <div class="table-container">
 
-                    <thead>
+                    <table class="table table-bordered">
 
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Roll</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
+                        <thead>
 
-                    </thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Roll</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
 
-                    <tbody id="studentsTable"></tbody>
+                        </thead>
 
-                </table>
+                        <tbody id="studentsTable"></tbody>
 
-            </div>
+                    </table>
+                    </div>
+
+                </div>
         </section>
 
 
@@ -160,9 +163,9 @@
 <td>${s.roll_no}</td>
 <td>${s.email}</td>
 
-<td>
+<td class="text-center">
 <button onclick="deleteStudent(${s.id})"
-class="btn btn-danger btn-sm">
+class="btn btn-danger btn-sm p-2">
 Delete
 </button>
 </td>

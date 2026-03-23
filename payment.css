@@ -3,8 +3,21 @@
   margin: 0;
 }
 
+:root {
+
+    --primary-color: #061E29;
+    --secondary-color: #1D546D;
+    --accent-color: #5F9598;
+    --background-color: #F3F4F4;
+
+    --card-color: #ffffff;
+    --text-dark: #061E29;
+    --text-light: #ffffff;
+
+}
+
 body{
-  background-color: #90BE6D;
+  background:var(--primary-color);
 }
 
 .welcomeDiv{
@@ -12,17 +25,18 @@ body{
   top: 0;
   z-index: 1;
   height: 200px;
-  color: #ffffff;
+  color:var(--text-light);
 }
 
 .welcomeDiv h1{
   font-weight: bolder;
+  color:var(--text-light);
 
 }
 
 main{
-  background-color: #C9E3AC;
-  width: 100vw;
+  background:var(--background-color);
+  width:100%;
   height: 120vh;
   border-radius: 50px 50px 0 0;
   margin-top: -80px; 
@@ -31,13 +45,11 @@ main{
 }
 
 main .due-section {
-  position: relative;
-  top: 60px;
+  padding-top: 60px;
 }
 
 main .fee-breakdown{
-  position: relative;
-  top: 70px;
+  margin: 30px 0px;
   display: flex;
   flex-direction: column;
 
@@ -45,8 +57,7 @@ main .fee-breakdown{
 }
 
 main .payment-section{
-  position: relative;
-  top: 70px;
+  margin: 30px 0px;
 }
 
 main .fee-breakdown .fee-div{
@@ -57,15 +68,16 @@ main .fee-breakdown .fee-div{
 }
 
 main .fee-breakdown .row{
-  background-color: #EAEFBD;
-  padding: 10px;
-  border-radius: 20px;
-  width: 100%;
+  background:var(--card-color);
+  color:var(--text-dark);
+  padding:12px;
+  border-radius:20px;
+  width:100%;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 main .payment-methods{
-  position: relative;
-  top: 150px;
+  margin: 30px 0px;
   display: flex;
 
 }

@@ -2,15 +2,28 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+
+    --primary-color: #061E29;
+    --secondary-color: #1D546D;
+    --accent-color: #5F9598;
+    --background-color: #F3F4F4;
+
+    --card-color: #ffffff;
+    --text-dark: #061E29;
+    --text-light: #ffffff;
+
+}
+
 body{
     position: fixed;
 }
 .login-form{
-    position: relative;
-    top: 90px;
+    padding-top: 60px;
 }
 
 .help-btn{
     border-radius: 20px;
-    border: 2px solid gray;
+    border: 2px solid var(--secondary-color);
 }

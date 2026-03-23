@@ -3,20 +3,33 @@
     padding: 0;
 }
 
+:root {
+
+    --primary-color: #061E29;
+    --secondary-color: #1D546D;
+    --accent-color: #5F9598;
+    --background-color: #F3F4F4;
+
+    --card-color: #ffffff;
+    --text-dark: #061E29;
+    --text-light: #ffffff;
+
+}
+
 .notification-section{
-    position: relative;
-    top: 50px;
+    padding-top: 60px;
     margin: 0px 10px;
 
 }
 
 .details-section{
-    position: relative;
-    top: 20px;
+    margin: 30px 0px;
 }
 
 .details-section .details-div {
-    background-color: #EAEFBD;
+    background:var(--card-color);
+    color:var(--text-dark);
     border-radius: 20px;
 
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
