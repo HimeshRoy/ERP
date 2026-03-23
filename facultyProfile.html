@@ -100,6 +100,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+
+        // redirect to login if not logged in
+        // protect page
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
         
         /* js for settings function*/
         const settingsBtn = document.getElementById("settingsBtn");
@@ -124,7 +130,7 @@
             window.location.href = "index.html"
         }
 
-        document.getElementById('welcomeName').innerText = 'Welcome ' + userName
+        document.getElementById('welcomeName').innerText = 'Welcome, ' + userName
 
         async function loadFacultyProfile() {
             const response = await fetch(`https://erp-y6ur.onrender.com/staff/profile/${userId}`)

@@ -101,6 +101,13 @@
 
     <script>
         
+        // redirect to login if not logged in
+        // protect page
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
+
+        
         /* js for settings function*/
         const settingsBtn = document.getElementById("settingsBtn");
         const overlay = document.getElementById("settingsOverlay");

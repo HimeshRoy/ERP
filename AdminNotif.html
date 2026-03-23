@@ -87,6 +87,13 @@
 
     <script>
 
+        // redirect to login if not logged in
+        // protect page
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
+
+        
         // loadNotifications function added by Himesh Roy
         async function loadNotifications() {
 

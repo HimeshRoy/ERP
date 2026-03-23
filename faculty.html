@@ -16,7 +16,8 @@
 <body>
     <section class="container-lg welcomeDiv">
         <div class="row">
-            <h1 class="text-center my-5">Good Morning, Dr. Kaur</h1>
+            <h1 id="welcomeName" class="text-center my-5"></h1>
+            <!-- greeting has made dynamic by Himesh Roy-->
         </div>
     </section>
 
@@ -222,7 +223,43 @@
 
     <!-- Itearation -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+        
+        // redirect to login if not logged in
+        // protect page
+        if (!localStorage.getItem("userId")) {
+            window.location.href = "index.html"
+        }
+
+        // 
+        const user = JSON.parse(localStorage.getItem('user')) 
+        const userId = localStorage.getItem('userId')
+        const userName = localStorage.getItem('userName')
+
+        if (!userId) {
+            window.location.href = "index.html"
+        }
+
+        document.getElementById('welcomeName').innerText = 'Welcome, ' + userName
+
+        async function loadFacultyProfile() {
+            const response = await fetch(`https://erp-y6ur.onrender.com/staff/profile/${userId}`)
+            const profile = await response.json()
+
+            document.getElementById('fullName').innerText = profile.name
+            document.getElementById('facultyId').innerText = profile.faculty_id
+            document.getElementById('email').innerText = profile.email
+            document.getElementById('dob').innerText = profile.dob
+            document.getElementById('mobile').innerText = '+91 ' + profile.mobile
+            document.getElementById('joiningYear').innerText = profile.joining_year
+            document.getElementById('address').innerText = profile.address
+            document.getElementById('department').innerText = profile.department
+        }
+
+        loadFacultyProfile()
+        
+        // calender
         document.addEventListener('DOMContentLoaded', function () {
 
             var calendarEl = document.getElementById('calendar');
